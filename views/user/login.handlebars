@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - WordWave</title>
+    <link rel="stylesheet" href="/css/login.css">
+  </head>
+
+  <body class="login-page">
+  <!-- Page Header -->
+  <header class="login-header">
+    <div class="header-container">
+      <div class="logo">
+        <img src="/images/logo.png" alt="WordWave Logo" class="logo-img">
+      </div>
+
+      <nav class="nav">
+        <a href="/" class="just-read-button">Just read</a>
+        <a href="/user/register" class="signup-button">Sign up</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- content -->
+    <div class="login-container">
+      <!-- Large title and buttons on the left -->
+      <div class="login-left">
+        <h1>Share your stories <br> and let the waves <br> carry them far and wide.</h1>
+        <a href="/" class="just-read-button">Just Read</a>
+      </div>
+
+      <!-- Login card on the right -->
+      <div class="login-box">
+        <h2>Welcome back</h2>
+        <p>Don't have an account? <a href="/user/register">Sign up</a></p>
+
+        <form action="/user/login" method="POST">
+          <div class="error-message">
+            {{message}}
+          </div>
+
+          <label>Username</label>
+          <input type="text" name="username" required>
+
+          <label>Password</label>
+          <input type="password" name="password" required>
+
+          <button type="submit" class="signin-button">Sign in</button>
+        </form>
+
+      </div>
+    </div>
+
+  </body>
+</html>
+

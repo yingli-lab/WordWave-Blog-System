@@ -1,0 +1,260 @@
+/* Page Container layout */
+.profile-container {
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 20px;
+    background: white;
+}
+
+/* Page heading */
+.page-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+/* Flex layout: avatar and registration form */
+.profile-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Avatar selection part */
+.avatar-section {
+    width: 280px;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Avatar part */
+.avatar-dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-dropdown img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.dropdown-arrow {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Avatar list: hide by default */
+.avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.hidden {
+    display: none;
+}
+
+.avatar-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 5px 0;
+    transition: transform 0.2s, border 0.2s;
+}
+
+.avatar-option:hover {
+    transform: scale(1.2);
+}
+
+/* Form Area */
+.form-content {
+    flex: 1;
+}
+
+/* Form input box */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-group textarea {
+    width: 100%;
+    height: 100px;
+    resize: none;
+}
+
+/* Two-column part: first name, last name */
+.input-row {
+    display: flex;
+    gap: 10px;
+}
+
+.input-row .input-group {
+    flex: 1;
+}
+
+/* Button */
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background: #dea35d;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #d98620;
+}
+
+.btn-primary:disabled {
+    cursor: not-allowed;
+    background: #888888;
+}
+
+.btn-secondary {
+    background: #ffffff;
+    border: 1px solid #666666;
+    color: black;
+}
+
+.btn-secondary:hover {
+    color: dodgerblue;
+}
+
+
+
+/* Responsive layout */
+
+
+
+@media (max-width: 1024px) {
+    .profile-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .profile-layout {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .avatar-section {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .avatar-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .form-content {
+        width: 100%;
+    }
+
+    .input-group input,
+    .input-group textarea {
+        width: 100%;
+    }
+
+    .button-group {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        width: 48%;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .profile-container {
+        width: 95%;
+    }
+
+    .avatar-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .input-group input,
+    .input-group textarea {
+        font-size: 14px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 20px;
+    }
+
+    .avatar-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .input-group input,
+    .input-group textarea {
+        font-size: 13px;
+        padding: 6px;
+    }
+
+    .btn {
+        font-size: 13px;
+        padding: 8px;
+    }
+}

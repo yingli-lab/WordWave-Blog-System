@@ -1,0 +1,38 @@
+<head>
+  <link rel="stylesheet" href="/css/header.css">
+</head>
+<!-- Header Template -->
+<header class="header">
+  <div class="header-container">
+    <a href="/" class="logo">
+      <img src="/images/logo.png" alt="WordWave Logo" class="logo-img">
+    </a>
+
+    <nav class="nav">
+      <!-- When user login in -->
+      {{#if user}}
+        <a href="/articles/create" class="write-button">Write</a>
+        <div class="user-menu">
+          <!-- User avatar -->
+          <img src="{{user.avatarUrl}}" alt="User Avatar" class="avatar-img" id="avatarButton">
+
+          <!-- User menu -->
+          <div class="dropdown-menu" id="dropdownMenu">
+            <a href="/user/my-profile" class="dropdown-item">Edit Profile</a>
+            <a href="/articles/my" class="dropdown-item">My Articles</a>
+            <div class="dropdown-divider"></div>
+            <a href="/user/logout" class="dropdown-item">Sign out</a>
+          </div>
+        </div>
+
+      <!-- Without login -->
+      {{else}}
+        <a href="/user/register" class="signup-button">Sign up</a>
+        <a href="/user/login" class="signin-button">Sign in</a>
+      {{/if}}
+    </nav>
+  </div>
+</header>
+
+<script src="/js/header.js"></script>
+

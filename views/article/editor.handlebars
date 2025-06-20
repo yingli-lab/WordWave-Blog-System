@@ -1,0 +1,64 @@
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css">
+  <link rel="stylesheet" href="/css/editor.css">
+  <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.min.js"></script>
+</head>
+
+
+<body>
+<div class="editor-container">
+  <!-- Title input box -->
+  <input type="text" class="title-input" placeholder="Enter article title" value="{{article.title}}" id="titleInput">
+
+  <!-- Content editor -->
+  <div class="editor-wrapper">
+    <div id="editor" data-content="{{article.content}}"></div>
+  </div>
+
+  <!-- Image upload -->
+  <div class="cover-upload">
+    <div class="cover-section">
+      <!-- Preview Area -->
+      <div class="image-preview" id="imagePreview">
+        {{#if article.image_url}}
+          <img src="{{article.image_url}}" id="coverImage">
+        {{/if}}
+      </div>
+
+      <!-- Control buttons -->
+      <div class="image-controls">
+        <button class="image-btn" id="uploadBtn" {{#if article.image_url}} style="display: none;" {{/if}}>
+          Upload image
+        </button>
+
+        <button class="image-btn" id="changeBtn" {{#unless article.image_url}} style="display: none;" {{/unless}}>
+          Change image
+        </button>
+
+        <button class="image-btn clear-btn" id="clearBtn" {{#unless article.image_url}}
+                style="display: none;" {{/unless}}>
+          Clear image
+        </button>
+      </div>
+    </div>
+
+    <input type="file" id="imageInput" class="file-input" accept="image/*">
+
+  </div>
+
+  <!-- Article buttons -->
+  <div class="button-group">
+    <button class="btn btn-cancel" onclick="goBack()">Cancel</button>
+    {{#if article}}
+      <button class="btn btn-republish" id="republishBtn" data-id="{{article.id}}">Republish</button>
+    {{else}}
+      <button class="btn btn-publish" id="publishBtn">Publish</button>
+    {{/if}}
+  </div>
+
+</div>
+
+</body>
+
+<script src="/js/editor.js"></script>
+

@@ -1,0 +1,49 @@
+<head>
+  <link rel="stylesheet" href="/css/home.css">
+</head>
+
+<div class="article-container">
+  <!-- Sorting buttons -->
+  <div class="sort-nav">
+    <button class="sort-btn" data-sort="title">Article Title</button>
+    <button class="sort-btn" data-sort="author">Author Name</button>
+    <button class="sort-btn" data-sort="created_time">Publish Date</button>
+  </div>
+
+  <!-- Article List -->
+  <section class="articles">
+    {{#each articles}}
+      <article class="article-item"
+       data-title="{{this.title}}"
+       data-author="{{this.author}}"
+       data-created_time="{{this.created_time}}">
+
+        <div class="article-header">
+          <img src="{{this.authorAvatar}}" alt="Author Avatar" class="avatar">
+          <span class="author-name">{{this.author}}</span>
+        </div>
+
+        <div class="article-content">
+          <div class="article-text">
+            <h2><a href="/articles/{{this.id}}">{{this.title}}</a></h2>
+            <p class="excerpt">{{this.excerpt}}</p>
+            <div class="article-meta">
+              <span class="likes">👍 {{this.likes}}</span>
+              <span class="comments">💬 {{this.comments}}</span>
+              <span class="created-time">{{formatDate this.created_time}}</span>
+            </div>
+          </div>
+          <div class="article-image">
+            <img src="{{this.image_url}}" alt="Article Image">
+          </div>
+        </div>
+
+      </article>
+    {{else}}
+      <p>No articles yet. Be the first to write one!</p>
+    {{/each}}
+  </section>
+
+</div>
+
+<script src="/js/home.js"></script>

@@ -1,0 +1,101 @@
+<head>
+  <link rel="stylesheet" href="/css/profile.css">
+</head>
+
+<!--User registration page -->
+<div class="profile-container">
+  <h1 class="page-title">
+    {{#if user}} Edit Your Profile {{else}} Create Your Profile {{/if}}
+  </h1>
+
+  <form action="{{#if user}}/user/update{{else}}/user/register{{/if}}" method="POST" class="form-container">
+    <div class="profile-layout">
+      <!-- Avatar selection part -->
+      <div class="avatar-section">
+        <h3 class="avatar-title">Select an Avatar</h3>
+
+        <!-- Currently selected avatar -->
+        <div class="avatar-dropdown" onclick="toggleAvatarDropdown()">
+          <img id="selected-avatar"
+               src="{{#if user.avatarUrl}}{{user.avatarUrl}}{{else}}{{avatars.[0].file_path}}{{/if}}"
+               alt="Selected Avatar">
+          <span class="dropdown-arrow">▼</span>
+        </div>
+
+        <!-- Avatar list: hide by default-->
+        <div class="avatar-grid hidden" id="avatar-grid">
+          {{#each avatars}}
+            <img src="{{this.file_path}}" alt="Avatar" class="avatar-option"
+                 data-avatar-id="{{this.id}}" onclick="selectAvatar(this)">
+          {{/each}}
+        </div>
+
+        <!-- Store the selected avatar ID -->
+        <input type="hidden" name="avatar_id" id="avatar_id"
+               value="{{#if user.avatar_id}}{{user.avatar_id}}{{else}}{{avatars.[0].id}}{{/if}}">
+      </div>
+
+      <!-- Registration form -->
+      <div class="form-content">
+        <div class="input-group">
+          <label for="username">Username*</label>
+          <input type="text" name="username" id="username" value="{{user.username}}" oninput="checkUsernameAvailability()" {{#if user}} data-is-editing="true" {{/if}} required>
+          <p id="username-status"></p>  <!-- Immediately informed if the given username is already taken. -->
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label for="first_name">First Name*</label>
+            <input type="text" name="first_name" id="first_name" value="{{user.first_name}}" required>
+          </div>
+          <div class="input-group">
+            <label for="last_name">Last Name*</label>
+            <input type="text" name="last_name" id="last_name" value="{{user.last_name}}" required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          {{#if user}}
+            <label for="password">New Password (leave blank to keep current)</label>
+            <input type="password" name="password" id="password" placeholder="Leave blank to keep current password">
+          {{else}}
+            <label for="password">Password*</label>
+            <input type="password" name="password" id="password" required>
+          {{/if}}
+        </div>
+
+        <div class="input-group">
+          <label for="repeat_password">Repeat Password</label>
+          <input type="password" name="repeat_password" id="repeat_password">
+          <p id="password-status"></p>
+        </div>
+
+        <div class="input-group">
+          <label for="birthday">Date of Birth</label>
+          <input type="date" name="birthday" id="birthday" value="{{user.birth_date}}">
+        </div>
+
+        <div class="input-group">
+          <label for="description">Description about yourself</label>
+          <textarea name="description" id="description" rows="4">{{user.description}}</textarea>
+        </div>
+
+        <div class="button-group">
+          {{#if user}}
+            <button type="button" class="btn btn-danger" onclick="deleteAccount()">Delete Account</button>
+          {{/if}}
+
+          <button type="reset" class="btn btn-secondary" onclick="goBack()">Cancel</button>
+          <button type="submit" class="btn btn-primary">
+            {{#if user}} Save {{else}} Create {{/if}}
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>
+
+<script src="/js/profile.js"></script>
+
+

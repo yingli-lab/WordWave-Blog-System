@@ -1,0 +1,254 @@
+
+/* Make the login page full screen and use a background image */
+body.login-page {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Page header */
+.login-header {
+    height: 80px;
+    position: absolute;
+    top: 0;
+    padding: 10px;
+    width: 100%;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1440px;  /* Limit maximum width of content area */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Logo style */
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo-img {
+    height: 60px;
+    padding: 10px;
+}
+
+/* Navigation style */
+.nav {
+    margin-left: auto;
+    display: flex;
+    gap: 15px;
+}
+
+.signup-button, .just-read-button {
+    text-decoration: none;
+    font-size: 14px;
+    color: black;
+    padding: 8px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.just-read-button {
+    background-color: transparent;
+    border: 1px solid gray;
+}
+
+.signup-button {
+    background-color: white;
+}
+
+/* Main body layout: left and right */
+.login-container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    height: 70vh;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Left: Large title and button */
+.login-left {
+    color: #182353;
+    text-align: left;
+}
+
+.login-left h1 {
+    font-size: 38px;
+    font-weight: bold;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.login-left .just-read-button {
+    display: inline-block;
+    font-size: 18px;
+    padding: 12px 24px;
+    background: white;
+    color: black;
+    border: none;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.login-left .just-read-button:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Right: Login box */
+.login-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 10px;
+}
+
+.login-box p {
+    margin-bottom: 20px;
+}
+
+/* error message */
+.error-message {
+    color: red;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.login-box form {
+    text-align: left;
+}
+
+.login-box label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.signin-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #f4c27f;
+    border: none;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+
+
+
+/* Responsive layout */
+
+
+
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+
+    .login-page {
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .login-container {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px;
+        margin-top: 60px;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .login-left {
+        display: none;
+    }
+
+    .login-box {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+        padding: 25px;
+        box-sizing: border-box;
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    .header-container {
+        justify-content: center;
+        padding: 0 15px;
+    }
+
+    .nav {
+        width: 80%;
+        justify-content: flex-end;
+        padding: 0 10px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        max-width: none;
+        margin: 8px 0 16px;
+    }
+
+    .signin-button {
+        width: 100%;
+        max-width: none;
+        margin: 16px 0;
+    }
+
+    .signup-button,
+    .just-read-button {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 375px) {
+    .login-box {
+        padding: 20px 15px;
+    }
+
+    .signup-button,
+    .just-read-button {
+        padding: 6px 15px;
+        font-size: 13px;
+    }
+}

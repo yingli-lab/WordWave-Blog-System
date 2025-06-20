@@ -1,0 +1,168 @@
+
+
+/* Global layout */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* Editor container */
+.editor-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Title input */
+.title-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 24px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background: white;
+}
+
+.title-input:focus {
+    outline: none;
+    border: 2px solid #e8890a;
+}
+
+/* Editor */
+.editor-wrapper {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+#editor {
+    min-height: 500px;
+    font-size: 16px;
+}
+
+.ql-toolbar.ql-snow {
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.ql-container.ql-snow {
+    border: none;
+}
+
+/* Image upload */
+.cover-upload {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.cover-section {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.image-preview {
+    width: 250px;
+    height: 150px;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fafafa;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Image buttons */
+.image-controls {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.image-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    background: white;
+    font-size: 16px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.image-btn:hover {
+    background: #f5f5f5;
+}
+
+.image-btn.clear-btn {
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+.image-btn.clear-btn:hover {
+    background: #fff5f5;
+}
+
+.upload-placeholder {
+    color: #666;
+    font-size: 16px;
+    text-align: center;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    border: none;
+    transition: all 0.2s;
+}
+
+.btn-cancel {
+    background: #f5f5f5;
+    color: #333;
+}
+
+.btn-cancel:hover {
+    background: #e8e8e8;
+}
+
+.btn-publish, .btn-republish {
+    background: #f4c27f;
+    color: #333;
+}
+
+.btn-publish:hover, .btn-republish:hover {
+    background: #e5b370;
+}
+
+.file-input {
+    display: none;
+}
+
+

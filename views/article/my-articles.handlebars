@@ -1,0 +1,27 @@
+<head>
+  <link rel="stylesheet" href="/css/my-articles.css">
+</head>
+
+<div class="container">
+  <h2 class="page-title">My Articles</h2>
+  <hr class="divider">
+
+  <ul class="my-article-list">
+    {{#each articles}}
+      <li class="article-item" id="article-{{this.id}}">
+        <h3><a href="/articles/{{this.id}}" class="article-title">{{this.title}}</a></h3>
+        <p class="article-excerpt">{{{this.excerpt}}}</p>
+
+        <div class="article-footer">
+          <p class="published-date">Published on {{formatDate this.created_time}}</p>
+          <div class="button-group">
+            <button class="edit-btn" data-id="{{this.id}}">Edit</button>
+            <button class="delete-btn" data-id="{{this.id}}">Delete</button>
+          </div>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+
+<script src="/js/my-articles.js"></script>

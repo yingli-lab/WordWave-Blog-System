@@ -1,0 +1,82 @@
+
+/* Comments list */
+.comment-list {
+    padding: 20px 0;
+}
+
+.comment-box {
+    display: flex;
+    flex-direction: column;
+}
+
+/* all comment box style */
+.comment-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    background: white;
+}
+
+/* Second floor replies */
+.reply-level-1 {
+    border-left: 2px solid #eeeeee;
+}
+
+/* Third floor replies */
+.reply-level-2 {
+    border-left: 2px solid #eeeeee;
+}
+
+/* Avatar */
+.comment-avatar img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-right: 10px;
+}
+
+/* Content */
+.comment-content {
+    flex-grow: 1;
+}
+
+.comment-author {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.comment-time {
+    font-size: 12px;
+    color: #888;
+}
+
+.comment-text {
+    margin: 10px 0;
+}
+
+/* Reply button */
+.reply-btn, .delete-comment-btn {
+    background: none;
+    border: none;
+    color: #182353;
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+.reply-btn:hover, .delete-comment-btn:hover {
+    color: #d98620;
+}
+
+/* Reply container */
+.reply-box-container {
+    width: 95%;
+    margin-left: auto;
+}
+
+.reply-box-container .button-group {
+    display: flex;
+    margin-left: auto;
+    gap: 10px;
+}
+

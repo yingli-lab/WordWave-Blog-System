@@ -1,0 +1,46 @@
+
+/* Comment editor style */
+.comment-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Input box */
+.comment-editor textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    resize: vertical;
+    outline: none;
+}
+
+.comment-editor textarea:focus {
+    border-color: #de8f12;
+    box-shadow: 0 0 5px rgba(255, 132, 0, 0.5);
+}
+
+/* Submit button */
+.comment-editor button {
+    align-self: flex-end;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    background: #dda25a;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.comment-editor button:hover {
+    background: #e8890a;
+}

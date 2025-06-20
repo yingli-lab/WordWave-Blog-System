@@ -1,0 +1,58 @@
+<head>
+  <link rel="stylesheet" href="/css/detail.css">
+</head>
+
+<div class="article-detail">
+  <h1 class="article-title">{{article.title}}</h1>
+
+  <div class="article-meta">
+    <img class="author-avatar" src="{{article.authorAvatar}}" alt="Author Avatar">
+    <div class="author-info">
+      <span class="author-name">{{article.author}}</span>
+      <span class="created-time">{{formatDate article.created_time}}</span>
+    </div>
+  </div>
+
+  <!-- Switch like action here -->
+  {{#if article.image_url}}
+    <div class="article-image">
+      <img src="{{article.image_url}}" alt="Article Image">
+    </div>
+  {{/if}}
+
+  <section class="article-content">
+    {{{article.content}}}
+  </section>
+
+  <div class="article-actions">
+    {{#if user}}
+      <button class="like-button" onclick="switchLike('{{article.id}}')">
+        👍 <span id="like-count">{{likes.length}}</span>
+      </button>
+    {{/if}}
+  </div>
+
+  <!-- Comment part -->
+  <button class="comment-section-button">Show Comments ▼</button>
+  <div class="comment-section">
+    <h3>Comments ({{comments.length}})</h3>
+
+    <!--  Comment editor  -->
+    <div class="comment-box">
+      {{#if user}}
+        {{> comment-editor parentId="" articleId=article.id }}
+      {{else}}
+        <div class="locked-comment-editor">
+          <p class="locked-message">Please sign in to leave a comment.</p>
+          <button class="sign-in-btn" onclick="goToLogin()">Sign in</button>
+        </div>
+      {{/if}}
+    </div>
+
+    <!-- Comment list -->
+    {{> comment-list comments=comments user=user articleId=article.id }}
+  </div>
+</div>
+
+
+<script src="/js/detail.js"></script>

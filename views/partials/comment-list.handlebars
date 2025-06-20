@@ -1,0 +1,104 @@
+<head>
+  <link rel="stylesheet" href="/css/comment-list.css">
+</head>
+
+<div class="comment-list">
+  {{#each comments}}
+    <!-- Root comments -->
+    <div class="comment-box">
+      <div class="comment-item" style="margin-left: 0px;">
+        <div class="comment-avatar">
+          <img src="{{userAvatar}}" alt="Avatar">
+        </div>
+        <div class="comment-content">
+          <p class="comment-author">{{username}}</p>
+          <p class="comment-text">{{content}}</p>
+          <span class="comment-time">{{formatDate created_time}}</span>
+          <!--  showing the reply button  -->
+          {{#if ../user}}
+            <button class="reply-btn" data-reply-to="{{id}}" data-article-id="{{../articleId}}">Reply</button>
+            <!-- showing the delete button -->
+            {{#if canDelete}}
+              <button class="delete-comment-btn" data-comment-id="{{id}}" data-article-id="{{article_id}}">Delete</button>
+            {{/if}}
+
+          {{/if}}
+        </div>
+      </div>
+
+      <!-- reply editor -->
+      <div class="reply-box-container" style="display: none;">
+        <form class="comment-editor">
+          <textarea name="comment" placeholder="Write a reply..." required></textarea>
+          <div class="button-group">
+            <button type="button" class="cancel-btn">Cancel</button>
+            <button type="submit" class="post-btn">Reply</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Second floor replies -->
+    {{#each replies}}
+      <div class="comment-box">
+        <div class="comment-item reply-level-1" style="margin-left: 40px;">
+          <div class="comment-avatar">
+            <img src="{{userAvatar}}" alt="Avatar">
+          </div>
+          <div class="comment-content">
+            <p class="comment-author">{{username}}</p>
+            <p class="comment-text">{{content}}</p>
+            <span class="comment-time">{{formatDate created_time}}</span>
+            <!--  showing the reply button  -->
+            {{#if ../../user}}
+              <button class="reply-btn" data-reply-to="{{id}}" data-article-id="{{../../articleId}}">Reply</button>
+              <!-- showing the delete button -->
+              {{#if canDelete}}
+                <button class="delete-comment-btn" data-comment-id="{{id}}" data-article-id="{{article_id}}">Delete</button>
+              {{/if}}
+
+            {{/if}}
+          </div>
+        </div>
+
+        <!-- reply editor -->
+        <div class="reply-box-container" style="display: none;">
+          <form class="comment-editor">
+            <textarea name="comment" placeholder="Write a reply..." required></textarea>
+            <div class="button-group">
+              <button type="button" class="cancel-btn">Cancel</button>
+              <button type="submit" class="post-btn">Reply</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Third floor replies   -->
+      {{#each replies}}
+        <div class="comment-box">
+
+          <div class="comment-item reply-level-2" style="margin-left: 80px;">
+            <div class="comment-avatar">
+              <img src="{{userAvatar}}" alt="Avatar">
+            </div>
+
+            <div class="comment-content">
+              <p class="comment-author">{{username}}</p>
+              <p class="comment-text">{{content}}</p>
+              <span class="comment-time">{{formatDate created_time}}</span>
+              <!-- showing the delete button -->
+              {{#if canDelete}}
+                <button class="delete-comment-btn" data-comment-id="{{id}}" data-article-id="{{article_id}}">Delete</button>
+              {{/if}}
+
+            </div>
+          </div>
+        </div>
+      {{/each}}
+
+    {{/each}}
+  {{/each}}
+</div>
+
+
+<script src="/js/comment-list.js"></script>
